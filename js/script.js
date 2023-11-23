@@ -5,10 +5,13 @@ const imagemPokemon         = document.querySelector('.img_pokemon');
 const formProcurarPokemon   = document.querySelector('.form_procurarPokemon');
 const inputProcurarPokemon  = document.querySelector('.input_buscaPokemon');
 const btnPrevPokemon        = document.querySelector('.btn-prev');
-const bntNextPokemon        = document.querySelector('.btn-next');
+const btnNextPokemon        = document.querySelector('.btn-next');
 const types                 = document.querySelector('.types');
 const dMain                 = document.querySelector('.principal');
-
+const btnaddTime            = document.querySelector('.btnadd-time');
+const time=[];
+const tiraPokemon          = document.querySelectorAll('.imgPokeTime');
+let posicaoArray=0;
 const coresTipos={
     normal: '#a8a878',
     fire: '#f05030',
@@ -29,16 +32,51 @@ const coresTipos={
     steel: '#b8b8d0',
     fairy: '#D685AD',
 }
-let pokemonInicial= 1 ;
-const BuscarPokemon = async (pokemon)=>{
+const nomesPokemon = [
+    `bulbasaur`, `ivysaur`, `venusaur`, `charmander`, `charmeleon`, `charizard`,
+    `squirtle`, `wartortle`, `blastoise`, `caterpie`, `metapod`, `butterfree`,
+    `weedle`, `kakuna`, `beedrill`, `pidgey`, `pidgeotto`, `pidgeot`, `rattata`,
+    `raticate`, `spearow`, `fearow`, `ekans`, `arbok`, `pikachu`, `raichu`,
+    `sandshrew`, `sandslash`, `nidoran♀`, `nidorina`, `nidoqueen`, `nidoran♂`,
+    `nidorino`, `nidoking`, `clefairy`, `clefable`, `vulpix`, `ninetales`,
+    `jigglypuff`, `wigglytuff`, `zubat`, `golbat`, `oddish`, `gloom`, `vileplume`,
+    `paras`, `parasect`, `venonat`, `venomoth`, `diglett`, `dugtrio`, `meowth`,
+    `persian`, `psyduck`, `golduck`, `mankey`, `primeape`, `growlithe`, `arcanine`,
+    `poliwag`, `poliwhirl`, `poliwrath`, `abra`, `kadabra`, `alakazam`, `machop`,
+    `machoke`, `machamp`, `bellsprout`, `weepinbell`, `victreebel`, `tentacool`,
+    `tentacruel`, `geodude`, `graveler`, `golem`, `ponyta`, `rapidash`, `slowpoke`,
+    `slowbro`, `magnemite`, `magneton`, `farfetch'd`, `doduo`, `dodrio`, `seel`,
+    `dewgong`, `grimer`, `muk`, `shellder`, `cloyster`, `gastly`, `haunter`,
+    `gengar`, `onix`, `drowzee`, `hypno`, `krabby`, `kingler`, `voltorb`, `electrode`,
+    `exeggcute`, `exeggutor`, `cubone`, `marowak`, `hitmonlee`, `hitmonchan`,
+    `lickitung`, `koffing`, `weezing`, `rhyhorn`, `rhydon`, `chansey`, `tangela`,
+    `kangaskhan`, `horsea`, `seadra`, `goldeen`, `seaking`, `staryu`, `starmie`,
+    `mr. mime`, `scyther`, `jynx`, `electabuzz`, `magmar`, `pinsir`, `tauros`,
+    `magikarp`, `gyarados`, `lapras`, `ditto`, `eevee`, `vaporeon`, `jolteon`,
+    `flareon`, `porygon`, `omanyte`, `omastar`, `kabuto`, `kabutops`, `aerodactyl`,
+    `snorlax`, `articuno`, `zapdos`, `moltres`, `dratini`, `dragonair`, `dragonite`,
+    `mewtwo`, `mew`
+  ];
+let pokemonInicial=1;
 
-    const respostaAPI= await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+const BuscarPokemon = async (pokemon)=>{
+    if (typeof pokemon=='number' && pokemon<=151 ) {
+        const respostaAPI= await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     
         if (respostaAPI.status === 200) {
             const data = await respostaAPI.json();
             return data;
     }
+    }
 
+    if(typeof pokemon=='string' && nomesPokemon.includes(pokemon) ){
+        const respostaAPI= await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        
+            if (respostaAPI.status === 200) {
+                const data = await respostaAPI.json();
+                return data;
+        }
+    }
 }
 
 
@@ -89,11 +127,37 @@ btnPrevPokemon.addEventListener('click', () => {
     }
 });
   
-bntNextPokemon.addEventListener('click', () => {
+btnNextPokemon.addEventListener('click', () => {
     pokemonInicial += 1;
     renderPokemon(pokemonInicial);
 });
+btnaddTime.addEventListener('click', () => {
+    if (posicaoArray<6) {
+        time[posicaoArray]=pokemonInicial;
+        document.querySelector('.imgP' + posicaoArray).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInicial}.png` );
+        posicaoArray+=1;
+    }
+      
+});
+tiraPokemon.forEach((div,index)=>{div.addEventListener('click', () =>{
+    if (time[index] != undefined) {
+        time.splice(index,1)
+        
+        posicaoArray--;
+        for (let index = 0; index < 6; index++) {
 
+           
+            if (time[index]==undefined) {
+                document.querySelector('.imgP' + index).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png` );
+
+            }else{
+                document.querySelector('.imgP' + index).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${time[index]}.png` );
+            }
+            
+        }
+
+    }
+});})
 
 
 renderPokemon(pokemonInicial);
