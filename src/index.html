@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="../style/style.css">
     <link href="/dist/output.css" rel="stylesheet">
-    
+    <script defer src="../js/script.js"></script>
     <title>Poketime</title>
 
 
@@ -14,40 +14,40 @@
 <body >
     <main class="min-h-screen bg-indigo-300 flex flex-col justify-center items-center p-4 gap-4 ">
         
-        <contain class="bg-slate-50 pb-3 pt-10 flex flex-col items-center rounded-lg w-full max-w-[400px] relative">
+        <contain class="bg-slate-50 pb-3 pt-12 px-5 flex flex-col items-center rounded-md w-full max-w-[400px] relative shadow-sombraDivs">
             <img 
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
+                src="#" 
                 alt="pokemon"
-                class=" w-full max-w-[200px] absolute top-[-110px]">
+                class="img_pokemon h-[100%] absolute top-[-70%] ">
                 <div>
-                    <span class="id-pokemon text-xl font-semibold text-slate-500">8</span> 
+                    <span class="id_pokemon text-xl font-semibold text-slate-500"></span> 
                     <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
-                    <span class="nome text-xl font-semibold">ditto</span>
+                    <span class="nome_pokemon text-xl font-semibold capitalize"></span>
                 </div>
-                <div class="types flex justify-around gap-6">
-                    <span class="type1 text-base bg-red-500 px-[0.2rem] rounded-sm">tipo</span>
-                    <span class="type2 text-base bg-red-500 px-[0.2rem] rounded-sm">tipo</span>
+                <div class="types flex justify-center w-full text-center  gap-4">
+
                 </div>
             
             
         </contain>
 
-        <form class="form w-full max-w-[400px] flex gap-4">
+        <form class="form_procurarPokemon w-full max-w-[400px] flex gap-4 ">
             <input
               type="search"
-              class="w-full  p-2 rounded-lg"
-              placeholder="Nome ou Número"
+              class="input_buscaPokemon w-full p-2 rounded-md shadow-sombraDivs"
+              placeholder="Nome ou Número "
               required
             />
-            <button class="bg-slate-50 rounded-full  w-full max-w-[40px]">+</button>
+            
         </form>
-        <div class="buttons w-full max-w-[400px] rounded-lg flex justify-around gap-4">
-            <button class="button btn-prev bg-slate-50 w-1/2 p-2 rounded-lg">Prev</button>
-            <button class="button btn-next bg-slate-50 w-1/2 p-2 rounded-lg">Next</button>
+        <button class="bg-slate-50 rounded-md h-10 w-full max-w-[400px] shadow-sombraDivs active:shadow-press">Adicionar ao time</button>
+        <div class="buttons w-full max-w-[400px]  flex justify-around gap-4">
+            <button class="btn-prev bg-slate-200 w-1/2 p-2 rounded-md shadow-sombraDivs active:shadow-press">Prev</button>
+            <button class="btn-next bg-slate-200 w-1/2 p-2 rounded-md shadow-sombraDivs active:shadow-press">Next</button>
         </div>
-        <div class="time bg-slate-50 p-1 flex flex-wrap justify-around rounded-lg w-full max-w-[400px] ">
+        <div class="time bg-slate-50 p-1 flex flex-wrap justify-around rounded-md w-full max-w-[400px] shadow-sombraDivs ">
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
+                <div class="imgPokeTime bg-slate-200 rounded-full h-10 w-full max-w-[40px] relative ">
                     <img 
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
                         alt="pokemon"
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
+                <div class="imgPokeTime bg-slate-200 rounded-full h-10 w-full max-w-[40px] relative ">
                     <img 
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
                         alt="pokemon"
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
+                <div class="imgPokeTime bg-slate-200 rounded-full h-10 w-full max-w-[40px] relative ">
                     <img 
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
                         alt="pokemon"
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
+                <div class="imgPokeTime bg-slate-200 rounded-full h-10 w-full max-w-[40px] relative ">
                     <img 
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
                         alt="pokemon"
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
+                <div class="imgPokeTime bg-slate-200 rounded-full h-10 w-full max-w-[40px] relative ">
                     <img 
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
                         alt="pokemon"
@@ -92,16 +92,10 @@
                 </div>
             </div>
             <div class="w-full max-w-[16%]  flex justify-center">
-                <div class="imgPokeTime bg-slate-300 rounded-full h-10 w-full max-w-[40px] relative ">
-                    <img 
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/132.png" 
-                        alt="pokemon"
-                        class=" absolute w-[5rem] max-w-none top-[-20px] right-[-20px]">
-                        
-                </div>
+                
             </div>
         </div>
     </main>
-    <script src="../js/script.js"></script>
+    
 </body>
 </html>
