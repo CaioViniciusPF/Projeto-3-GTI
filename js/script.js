@@ -6,7 +6,9 @@ const formProcurarPokemon   = document.querySelector('.form_procurarPokemon');
 const inputProcurarPokemon  = document.querySelector('.input_buscaPokemon');
 const btnPrevPokemon        = document.querySelector('.btn-prev');
 const bntNextPokemon        = document.querySelector('.btn-next');
-const types = document.querySelector('.types');
+const types                 = document.querySelector('.types');
+const dMain                 = document.querySelector('.principal');
+
 const coresTipos={
     normal: '#a8a878',
     fire: '#f05030',
@@ -48,19 +50,20 @@ const renderPokemon = async (pokemon)=>{
     numeroPokemon.innerHTML = '';
 
     if (data) {
-  
+        const cortipo1 =coresTipos[data['types'][0]['type']['name']];
         nomePokemon.innerHTML=data.name;
         numeroPokemon.innerHTML=data.id;
         inputProcurarPokemon.value='';
         pokemonInicial=data.id;
-        const cortipo1 =coresTipos[data['types'][0]['type']['name']];
+        dMain.style= `background-image: radial-gradient(circle, ${cortipo1}b9 16%, ${cortipo1} 71%), url(../img/pokebola.png);background-repeat: no-repeat;`;
         if(!data['types'][1]){
-           types.innerHTML=`<span class="tipo1_pokemon text-base style="background:${cortipo1};" px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>`
+
+           types.innerHTML=`<span class="tipo1_pokemon text-base px-[0.2rem] w-1/4 rounded-sm" style="background:${cortipo1}"> ${data['types'][0]['type']['name']}</span>`
         }else{
             const cortipo2 =coresTipos[data['types'][1]['type']['name']];
             types.innerHTML=
-               `<span class="tipo1_pokemon text-base bg-[${cortipo1}] px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>
-                <span class="tipo2_pokemon text-base style="background:${cortipo2};" px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][1]['type']['name']}</span>`
+               `<span class="tipo1_pokemon text-base px-[0.2rem] w-1/4 rounded-sm" style="background:${cortipo1};"> ${data['types'][0]['type']['name']}</span>
+                <span class="tipo2_pokemon text-base px-[0.2rem] w-1/4 rounded-sm" style="background:${cortipo2};"> ${data['types'][1]['type']['name']}</span>`
         }
 
         imagemPokemon.src=data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
@@ -90,6 +93,7 @@ bntNextPokemon.addEventListener('click', () => {
     pokemonInicial += 1;
     renderPokemon(pokemonInicial);
 });
+
 
 
 renderPokemon(pokemonInicial);
