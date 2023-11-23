@@ -7,7 +7,26 @@ const inputProcurarPokemon  = document.querySelector('.input_buscaPokemon');
 const btnPrevPokemon        = document.querySelector('.btn-prev');
 const bntNextPokemon        = document.querySelector('.btn-next');
 const types = document.querySelector('.types');
-
+const coresTipos={
+    normal: '#a8a878',
+    fire: '#f05030',
+    water: '#6890f0',
+    electric: '#f8d030',
+    grass: '#78c850',
+    ice: '#98d8d8',
+    fighting: '#903028',
+    poison: '#a040a0',
+    ground: '#e0c068',
+    flying: '#a890f0',
+    psychic: '#f85888',
+    bug: '#A6B91A',
+    rock: '#b8a038',
+    ghost: '#705898',
+    dragon: '#7038f8',
+    dark: '#705848',
+    steel: '#b8b8d0',
+    fairy: '#D685AD',
+}
 let pokemonInicial= 1 ;
 const BuscarPokemon = async (pokemon)=>{
 
@@ -29,26 +48,26 @@ const renderPokemon = async (pokemon)=>{
     numeroPokemon.innerHTML = '';
 
     if (data) {
-
+  
         nomePokemon.innerHTML=data.name;
         numeroPokemon.innerHTML=data.id;
         inputProcurarPokemon.value='';
         pokemonInicial=data.id;
-
+        const cortipo1 =coresTipos[data['types'][0]['type']['name']];
         if(!data['types'][1]){
-           console.log("ok");
-           types.innerHTML=`<span class="tipo1_pokemon text-base bg-red-500 px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>`
+           types.innerHTML=`<span class="tipo1_pokemon text-base style="background:${cortipo1};" px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>`
         }else{
+            const cortipo2 =coresTipos[data['types'][1]['type']['name']];
             types.innerHTML=
-               `<span class="tipo1_pokemon text-base bg-red-500 px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>
-                <span class="tipo2_pokemon text-base bg-red-500 px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][1]['type']['name']}</span>`
+               `<span class="tipo1_pokemon text-base bg-[${cortipo1}] px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][0]['type']['name']}</span>
+                <span class="tipo2_pokemon text-base style="background:${cortipo2};" px-[0.2rem] w-1/4 rounded-sm"> ${data['types'][1]['type']['name']}</span>`
         }
 
         imagemPokemon.src=data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
     } else {
         nomePokemon.innerHTML = 'Não encontrado';
         numeroPokemon.innerHTML = '';
-        imagemPokemon.src='../img/notfound';
+        imagemPokemon.src='../img/notfound.png';
         
     }
    
