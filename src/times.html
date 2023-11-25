@@ -3,16 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="icon" href="../favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href="../dist/output.css" rel="stylesheet">
     <script defer src="../js/scriptTime.js"></script>
     <title>Seu time</title>
 </head>
 <body>
-<main class="bg-green-300 min-h-screen">
+<main class="bg-emerald-200 min-h-screen flex flex-col px-[15%]">
 
-    <contain class="cards p-2 bg-slate-400">
-        <div class="card p-2 bg-slate-500">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png" alt="">
+ 
+    <h1 class="nome_time text-4xl p-5 mt-20 text-center font-semibold text-slate-700 "></h1>
+
+
+    <contain class="cards w-full  flex flex-wrap justify-center items-center gap-4 ">
+        <div class="card0 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class=" rounded-lg flex justify-center w-full  relative p-20">
+                <img src="" alt=""
+                class="imgP0 top-8 absolute w-full  max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon0 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon0 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types0 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon0 text-base px-[0.4rem]  rounded-sm" ></span>
+                    <span class="tipo2_pokemon0 text-base px-[0.4rem]  rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp0 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att0 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def0 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed0 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="card1 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class=" rounded-lg flex justify-center relative p-20">
+                <img src="" alt=""
+                class="imgP1 absolute top-8 w-full max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon1 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon1 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types1 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon1 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                    <span class="tipo2_pokemon1 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp1 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att1 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def1 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed1 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card2 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class=" rounded-lg flex justify-center relative p-20">
+                <img src="" alt=""
+                class="imgP2 absolute top-8 w-full max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon2 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon2 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types2 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon2 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                    <span class="tipo2_pokemon2 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp2 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att2 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def2 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed2 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card3 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class=" rounded-lg flex justify-center relative p-20">
+                <img src="#" alt=""
+                class="imgP3 absolute top-8 w-full max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon3 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon3 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types3 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon3 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                    <span class="tipo2_pokemon3 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp3 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att3 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def3 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed3 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card4 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class=" rounded-lg flex justify-center relative p-20">
+                <img src="#" alt=""
+                class="imgP4 absolute top-8 w-full max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon4 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon4 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types4 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon4 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                    <span class="tipo2_pokemon4 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp4 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att4 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def4 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed4 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+   
+                </div>
+
+            </div>
+        </div>
+        <div class="card5 w-full min-w-[200px] max-w-[30%] rounded-[16px]">
+            <div class="  rounded-lg flex justify-center relative p-20">
+                <img src="#" alt=""
+                class="imgP5 absolute top-8 w-full max-w-[60%]">
+            </div>
+            <div class="p-5 bg-slate-50 rounded-[16px]">
+                <div class="flex justify-end w-full text-center p-2 gap-4">
+                    <span class="id_pokemon5 text-xl font-semibold text-slate-500"></span> 
+                    <span class="text-xl font-semibold text-xl font-semibold text-slate-500">-</span>
+                    <span class="nome_pokemon5 text-xl font-semibold capitalize"></span>
+                </div>
+                <div class="types5 flex justify-center w-full text-center p-2 gap-4">
+                    <span class="tipo1_pokemon5 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                    <span class="tipo2_pokemon5 text-base px-[0.2rem] w-1/4 rounded-sm" ></span>
+                </div>
+
+                <div class="atributos w-full text-center flex flex-wrap ">
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">hp:</h2><span class="hp5 text-base px-[0.2rem]  rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">atack:</h2><span class="att5 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">defense:</h2><span class="def5 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="font-semibold">speed:</h2><span class="speed5 text-base px-[0.2rem] rounded-sm " ></span>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
         </div>
     </contain>
 

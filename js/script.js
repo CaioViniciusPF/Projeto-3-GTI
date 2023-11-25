@@ -143,8 +143,10 @@ btnPrevPokemon.addEventListener('click', () => {
 });
   
 btnNextPokemon.addEventListener('click', () => {
+    if (pokemonInicial < 151 ) {
     pokemonInicial += 1;
     renderPokemon(pokemonInicial);
+    }
 });
 
 btnaddTime.addEventListener('click', () => {
@@ -189,10 +191,10 @@ tiraPokemon.forEach((div,index)=>{div.addEventListener('click', () =>{
 
 btnverPokemon.addEventListener('click',()=>{ 
     let nomeTime = inputNomePokemon.value;
-    console.log(time.length);
     if(nomeTime.length !== 0 && time.length==6){
+        const timestring = encodeURIComponent(JSON.stringify(time));
         window.localStorage.setItem('nomeTime', nomeTime);
-        window.localStorage.setItem('time', time);
+        window.localStorage.setItem('timestring', timestring);
         window.location.href = "times.html";
     }
     
