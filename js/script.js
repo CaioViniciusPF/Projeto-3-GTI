@@ -3,7 +3,10 @@ const nomePokemon           = document.querySelector('.nome_pokemon');
 const numeroPokemon         = document.querySelector('.id_pokemon');
 const imagemPokemon         = document.querySelector('.img_pokemon');
 const formProcurarPokemon   = document.querySelector('.form_procurarPokemon');
+const formNomePokemon       = document.querySelector('.form_nomePokemon');
 const inputProcurarPokemon  = document.querySelector('.input_buscaPokemon');
+const inputNomePokemon      = document.querySelector('.input_nomePokemon');
+const btnverPokemon         = document.querySelector('.btnver-time');
 const btnPrevPokemon        = document.querySelector('.btn-prev');
 const btnNextPokemon        = document.querySelector('.btn-next');
 const types                 = document.querySelector('.types');
@@ -59,10 +62,24 @@ const nomesPokemon = [
   ];
 let pokemonInicial=1;
 
+function isNumeric(str) {
+    var er = /^[0-9]+$/;
+    return (er.test(str));
+}
+
 const BuscarPokemon = async (pokemon)=>{
+
+    if (isNumeric(pokemon) && pokemon<=151 ) {
+        const respostaAPI= await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        
+        if (respostaAPI.status === 200) {
+            const data = await respostaAPI.json();
+            return data;
+    }
+    }
     if (typeof pokemon=='number' && pokemon<=151 ) {
         const respostaAPI= await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-    
+        
         if (respostaAPI.status === 200) {
             const data = await respostaAPI.json();
             return data;
@@ -84,8 +101,6 @@ const renderPokemon = async (pokemon)=>{
 
     const data= await BuscarPokemon(pokemon);
 
-    nomePokemon.innerHTML = '...';
-    numeroPokemon.innerHTML = '';
 
     if (data) {
         const cortipo1 =coresTipos[data['types'][0]['type']['name']];
@@ -116,10 +131,10 @@ const renderPokemon = async (pokemon)=>{
 
 formProcurarPokemon.addEventListener('submit',(event)=>{
     event.preventDefault();
-
-    renderPokemon(inputProcurarPokemon.value.toLowerCase());
+    renderPokemon( inputProcurarPokemon.value.toLowerCase());
     
 });
+
 btnPrevPokemon.addEventListener('click', () => {
     if (pokemonInicial > 1) {
         pokemonInicial -= 1;
@@ -131,14 +146,25 @@ btnNextPokemon.addEventListener('click', () => {
     pokemonInicial += 1;
     renderPokemon(pokemonInicial);
 });
+
 btnaddTime.addEventListener('click', () => {
     if (posicaoArray<6) {
         time[posicaoArray]=pokemonInicial;
         document.querySelector('.imgP' + posicaoArray).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInicial}.png` );
         posicaoArray+=1;
     }
-      
+    for (let index = 0; index < 6; index++) {
+
+           
+        if (time[index]!=undefined) {
+
+
+            document.querySelector('.imgP' + index).setAttribute('class', ' hoverTiraPokemon imgP' + index);
+        }
+        
+    }
 });
+
 tiraPokemon.forEach((div,index)=>{div.addEventListener('click', () =>{
     if (time[index] != undefined) {
         time.splice(index,1)
@@ -149,9 +175,11 @@ tiraPokemon.forEach((div,index)=>{div.addEventListener('click', () =>{
            
             if (time[index]==undefined) {
                 document.querySelector('.imgP' + index).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png` );
+                document.querySelector('.imgP' + index).setAttribute('class','imgP'+index);
 
             }else{
                 document.querySelector('.imgP' + index).setAttribute('src',`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${time[index]}.png` );
+                
             }
             
         }
@@ -159,5 +187,26 @@ tiraPokemon.forEach((div,index)=>{div.addEventListener('click', () =>{
     }
 });})
 
+btnverPokemon.addEventListener('click',()=>{ 
+    let nomeTime = inputNomePokemon.value;
+    console.log(time.length);
+    if(nomeTime.length !== 0 && time.length==6){
+        window.localStorage.setItem('nomeTime', nomeTime);
+        window.localStorage.setItem('time', time);
+        window.location.href = "times.html";
+    }
+    
+    if (nomeTime.length === 0) {
+        alert('Coloque um nome no seu time');
+    }
+    if (time.length<6) {
+        alert('Complete time');
+    }
+    
+}); 
+
+
 
 renderPokemon(pokemonInicial);
+
+/* window.location.href=`times.html?time=${time}` */

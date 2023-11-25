@@ -3,3 +3,14 @@
 *{
     font-family: 'Oxanium', sans-serif;
 }
+
+.hoverTiraPokemon{
+    background-image: none;
+    transition: 500ms ease-in ;
+    cursor: pointer;
+    
+}
+
+.hoverTiraPokemon:hover{
+    background-image: radial-gradient(circle, rgb(255,55,55, 0.7) 25%, rgb(249, 250 ,251,0.13) 70%);
+}

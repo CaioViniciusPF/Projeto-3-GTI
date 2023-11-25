@@ -10,6 +10,7 @@ module.exports = {
 
       backgroundImage:{
         'fundoTime':'radial-gradient(circle, rgb(156,163,175, 0.7) 25%, rgb(249, 250 ,251,0.13) 70%)',
+       
       }
     },
   },
